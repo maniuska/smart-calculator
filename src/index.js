@@ -31,14 +31,13 @@ class SmartCalculator {
     
     toString() {
       
-       for (var i=1; i<this.pastOper.length-1; i+=2){
-        if (this.pastOper[i]=="^"){
-          this.pastOper[i-1]=Math.pow(this.pastOper[i-1],this.pastOper[i+1]);
-          this.pastOper.splice(i,2);
-          i-=2;
-        }
+      for (var i=this.pastOper.length-2; i>=1; i-=2){
+      if (this.pastOper[i]=="^"){
+        this.pastOper[i-1]=Math.pow(this.pastOper[i-1],this.pastOper[i+1]);
+        this.pastOper.splice(i,2);
       }
-      
+    }
+
        //check * /
       for (var i=1; i<this.pastOper.length-1; i+=2){
         if (this.pastOper[i]=="*"){
